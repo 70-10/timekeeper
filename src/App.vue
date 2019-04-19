@@ -3,7 +3,9 @@
     <div class="hero-body">
       <div class="container">
         <h1 id="title" class="title has-text-centered">{{ count }}</h1>
-        <progress class="progress is-success" :value="timer" :max="max">{{count}}</progress>
+        <progress class="progress is-success" :value="timer" :max="max">{{
+          count
+        }}</progress>
         <p class="buttons">
           <button class="button" @click="add(1 * 60 * 60)">+ 1 hour</button>
           <button class="button" @click="add(1 * 60)">+ 1 minute</button>
@@ -16,17 +18,18 @@
         </p>
       </div>
     </div>
+    <git-hub-badge />
   </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import GitHubBadge from "./components/GitHubBadge.vue";
 import numeral from "numeral";
 
 @Component({
   components: {
-    HelloWorld
+    GitHubBadge
   }
 })
 export default class App extends Vue {
