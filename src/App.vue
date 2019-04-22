@@ -3,9 +3,9 @@
     <div class="hero-body">
       <div class="container">
         <h1 id="title" class="title has-text-centered">{{ count }}</h1>
-        <progress class="progress is-success" :value="timer" :max="max">{{
-          count
-        }}</progress>
+        <progress class="progress is-success" :value="timer" :max="max">
+          {{ count }}
+        </progress>
         <p class="buttons">
           <button class="button" @click="add(1 * 60 * 60)">+ 1 hour</button>
           <button class="button" @click="add(1 * 60)">+ 1 minute</button>
@@ -42,6 +42,9 @@ export default class App extends Vue {
   }
 
   start(): void {
+    if (this.interval > 0) {
+      return;
+    }
     if (this.timer <= 0) {
       return;
     }
@@ -56,6 +59,7 @@ export default class App extends Vue {
 
   stop(): void {
     clearInterval(this.interval);
+    this.interval = 0;
   }
 
   add(num: number): void {
@@ -67,6 +71,7 @@ export default class App extends Vue {
     clearInterval(this.interval);
     this.timer = 0;
     this.max = 0;
+    this.interval = 0;
   }
 }
 </script>
