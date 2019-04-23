@@ -3,14 +3,60 @@
     <div class="hero-body">
       <div class="container">
         <h1 id="title" class="title has-text-centered">{{ count }}</h1>
-        <progress class="progress is-success" :value="timer" :max="max">
-          {{ count }}
-        </progress>
-        <p class="buttons">
-          <button class="button" @click="add(1 * 60 * 60)">+ 1 hour</button>
-          <button class="button" @click="add(1 * 60)">+ 1 minute</button>
-          <button class="button" @click="add(1)">+ 1 second</button>
-        </p>
+        <progress class="progress is-success" :value="timer" :max="max">{{ count }}</progress>
+        <div class="columns is-mobile">
+          <div class="column is-one-third">
+            <div class="has-text-centered">
+              <h2 class="subtitle">Hour</h2>
+            </div>
+            <p class="buttons has-addons is-centered">
+              <button class="button" @click="subtract(1 * 60 * 60)">
+                <span class="icon">
+                  <i class="fas fa-minus"></i>
+                </span>
+              </button>
+              <button class="button" @click="add(1 * 60 * 60)">
+                <span class="icon">
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+            </p>
+          </div>
+          <div class="column is-one-third">
+            <div class="has-text-centered">
+              <h2 class="subtitle">Minute</h2>
+            </div>
+            <p class="buttons has-addons is-centered">
+              <button class="button" @click="subtract(1 * 60 )">
+                <span class="icon">
+                  <i class="fas fa-minus"></i>
+                </span>
+              </button>
+              <button class="button" @click="add(1 * 60 )">
+                <span class="icon">
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+            </p>
+          </div>
+          <div class="column is-one-third">
+            <div class="has-text-centered">
+              <h2 class="subtitle">Second</h2>
+            </div>
+            <p class="buttons has-addons is-centered">
+              <button class="button" @click="subtract(1)">
+                <span class="icon">
+                  <i class="fas fa-minus"></i>
+                </span>
+              </button>
+              <button class="button" @click="add(1)">
+                <span class="icon">
+                  <i class="fas fa-plus"></i>
+                </span>
+              </button>
+            </p>
+          </div>
+        </div>
         <p class="buttons">
           <button class="button" @click="start">start</button>
           <button class="button" @click="stop">stop</button>
@@ -18,7 +64,7 @@
         </p>
       </div>
     </div>
-    <git-hub-badge />
+    <git-hub-badge/>
   </section>
 </template>
 
@@ -65,6 +111,19 @@ export default class App extends Vue {
   add(num: number): void {
     this.timer += num;
     this.max += num;
+  }
+
+  subtract(num: number): void {
+    if (this.max <= 0) {
+      return;
+    }
+
+    if (this.max - num <= 0) {
+      this.reset();
+      return;
+    }
+
+    this.add(-1 * num);
   }
 
   reset(): void {
