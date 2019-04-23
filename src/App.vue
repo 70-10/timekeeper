@@ -3,9 +3,9 @@
     <div class="hero-body">
       <div class="container">
         <h1 id="title" class="title has-text-centered">{{ count }}</h1>
-        <progress class="progress is-success" :value="timer" :max="max">{{
-          count
-        }}</progress>
+        <progress class="progress is-success" :value="timer" :max="max">
+          {{ count }}
+        </progress>
         <div class="columns is-mobile">
           <div class="column is-one-third">
             <div class="has-text-centered">
@@ -67,7 +67,7 @@
           <button class="button" @click="set(30 * 60)">30 minutes</button>
         </p>
 
-        <p class="buttons">
+        <p class="buttons is-centered">
           <button class="button" @click="start">start</button>
           <button class="button" @click="stop">stop</button>
           <button class="button" @click="reset">reset</button>
