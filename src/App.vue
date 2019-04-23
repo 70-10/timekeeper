@@ -3,7 +3,9 @@
     <div class="hero-body">
       <div class="container">
         <h1 id="title" class="title has-text-centered">{{ count }}</h1>
-        <progress class="progress is-success" :value="timer" :max="max">{{ count }}</progress>
+        <progress class="progress is-success" :value="timer" :max="max">{{
+          count
+        }}</progress>
         <div class="columns is-mobile">
           <div class="column is-one-third">
             <div class="has-text-centered">
@@ -27,12 +29,12 @@
               <h2 class="subtitle">Minute</h2>
             </div>
             <p class="buttons has-addons is-centered">
-              <button class="button" @click="subtract(1 * 60 )">
+              <button class="button" @click="subtract(1 * 60)">
                 <span class="icon">
                   <i class="fas fa-minus"></i>
                 </span>
               </button>
-              <button class="button" @click="add(1 * 60 )">
+              <button class="button" @click="add(1 * 60)">
                 <span class="icon">
                   <i class="fas fa-plus"></i>
                 </span>
@@ -72,7 +74,7 @@
         </p>
       </div>
     </div>
-    <git-hub-badge/>
+    <git-hub-badge />
   </section>
 </template>
 
