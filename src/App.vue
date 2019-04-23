@@ -57,6 +57,14 @@
             </p>
           </div>
         </div>
+
+        <p class="buttons has-addons is-centered">
+          <button class="button" @click="set(5 * 60)">5 minutes</button>
+          <button class="button" @click="set(15 * 60)">15 minutes</button>
+          <button class="button" @click="set(20 * 60)">20 minutes</button>
+          <button class="button" @click="set(30 * 60)">30 minutes</button>
+        </p>
+
         <p class="buttons">
           <button class="button" @click="start">start</button>
           <button class="button" @click="stop">stop</button>
@@ -106,6 +114,11 @@ export default class App extends Vue {
   stop(): void {
     clearInterval(this.interval);
     this.interval = 0;
+  }
+
+  set(num: number): void {
+    this.timer = num;
+    this.max = num;
   }
 
   add(num: number): void {
