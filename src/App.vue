@@ -1,11 +1,8 @@
 <template>
-  <section class="hero is-fullheight">
+  <section class="hero is-fullheight" v-bind:style="{background: linearGradieng}">
     <div class="hero-body">
       <div class="container">
         <h1 id="title" class="title has-text-centered">{{ count }}</h1>
-        <progress class="progress is-success" :value="timer" :max="max">
-          {{ count }}
-        </progress>
         <div class="columns is-mobile">
           <div class="column is-one-third">
             <div class="has-text-centered">
@@ -95,6 +92,16 @@ export default class App extends Vue {
 
   get count() {
     return numeral(this.timer).format("00:00:00");
+  }
+
+  get percentage(): number {
+    return Math.floor((this.timer / this.max) * 100);
+  }
+
+  get linearGradieng(): string {
+    return `linear-gradient(to right, rgb(92, 191, 148) 0% ${
+      this.percentage
+    }%, white ${this.percentage}%)`;
   }
 
   start(): void {
