@@ -119,3 +119,6 @@ dist
 
 # Vercel
 .vercel
+
+# Project
+public/build/
