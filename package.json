@@ -6,6 +6,10 @@
     "dev": "rollup -c -w",
     "start": "sirv public"
   },
+  "dependencies": {
+    "numeral": "^2.0.6",
+    "sirv-cli": "^1.0.0"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
@@ -18,9 +22,5 @@
     "svelte": "^3.0.0",
     "svelte-preprocess": "^4.6.3",
     "tailwindcss": "^2.0.2"
-  },
-  "dependencies": {
-    "numeral": "^2.0.6",
-    "sirv-cli": "^1.0.0"
   }
 }
