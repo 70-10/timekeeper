@@ -38,16 +38,16 @@
 </script>
 
 <main
-  class="flex flex-col items-center justify-center h-screen space-y-3"
+  class="main"
   style="background-image: linear-gradient(
       to right,
       rgb(92, 191, 148) 0% {percentage}%,
       white {percentage}%
     );"
 >
-  <span class="text-7xl md:text-9xl font-bold text-white">{timeNumeral}</span>
+  <span class="time">{timeNumeral}</span>
 
-  <div class="inline-flex items-center space-x-4">
+  <div class="buttons">
     {#if !interval}
       <button on:click={start} class="button">
         <svg
@@ -55,7 +55,7 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="w-5 h-5 mr-2"
+          class="icon"
         >
           <path
             stroke-linecap="round"
@@ -80,7 +80,7 @@
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="w-5 h-5 mr-2"
+          class="icon"
         >
           <path
             stroke-linecap="round"
@@ -99,7 +99,7 @@
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
-        class="w-5 h-5 mr-2"
+        class="icon"
       >
         <path
           stroke-linecap="round"
@@ -111,7 +111,7 @@
       <span>Reset</span>
     </button>
   </div>
-  <div class="inline-flex items-center space-x-4">
+  <div class="buttons">
     <button on:click={() => setTime(5)} class="button">5 minutes</button>
     <button on:click={() => setTime(15)} class="button">15 minutes</button>
     <button on:click={() => setTime(30)} class="button">30 minutes</button>
@@ -124,11 +124,31 @@
   @tailwind components;
   @tailwind utilities;
 
+  .main {
+    @apply flex flex-col space-y-3;
+    @apply items-center justify-center;
+    @apply h-screen;
+  }
+
+  .time {
+    @apply text-7xl md:text-9xl;
+    @apply font-bold text-gray-700;
+  }
+
+  .buttons {
+    @apply inline-flex space-x-4;
+    @apply items-center;
+  }
   .button {
-    @apply ring-1 ring-white rounded-full;
+    @apply ring-1 ring-gray-700 rounded-full;
     @apply inline-flex items-center;
     @apply px-4 py-2;
-    @apply font-bold text-white;
-    @apply hover:bg-white hover:text-green-500;
+    @apply font-bold text-gray-700;
+    @apply hover:bg-gray-700 hover:text-green-500;
+  }
+
+  .icon {
+    @apply w-5 h-5;
+    @apply mr-2;
   }
 </style>
