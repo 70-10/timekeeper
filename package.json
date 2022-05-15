@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "14.0.0",
-    "@rollup/plugin-node-resolve": "8.4.0",
+    "@rollup/plugin-node-resolve": "13.3.0",
     "autoprefixer": "10.2.3",
     "postcss": "8.2.4",
     "rollup": "2.38.1",
