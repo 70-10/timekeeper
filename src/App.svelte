@@ -118,37 +118,3 @@
     <button on:click={() => setTime(60)} class="button">1 hour</button>
   </div>
 </main>
-
-<style global lang="postcss">
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-  .main {
-    @apply flex flex-col space-y-3;
-    @apply items-center justify-center;
-    @apply h-screen;
-  }
-
-  .time {
-    @apply text-7xl md:text-9xl;
-    @apply font-bold text-gray-700;
-  }
-
-  .buttons {
-    @apply inline-flex space-x-4;
-    @apply items-center;
-  }
-  .button {
-    @apply ring-1 ring-gray-700 rounded-full;
-    @apply inline-flex items-center;
-    @apply px-4 py-2;
-    @apply font-bold text-gray-700;
-    @apply hover:bg-gray-700 hover:text-green-500;
-  }
-
-  .icon {
-    @apply w-5 h-5;
-    @apply mr-2;
-  }
-</style>
