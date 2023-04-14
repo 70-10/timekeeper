@@ -9,6 +9,9 @@
   $: timeNumeral = numeral(time).format("00:00:00");
 
   function start() {
+    if(time <= 0) {
+      return
+    }
     interval = setInterval(() => {
       time--;
       if (time <= 0) {
@@ -34,6 +37,17 @@
     reset();
 
     time = max = minutes * 60;
+  }
+
+  function addTime(minutes) {
+    reset()
+    
+    const tmp = time
+    if(tmp + minutes * 60 <=0) {
+      time = max = 0
+      return
+    }
+    time = max = time + minutes * 60
   }
 </script>
 
@@ -112,9 +126,10 @@
     </button>
   </div>
   <div class="buttons">
-    <button on:click={() => setTime(5)} class="button">5 minutes</button>
-    <button on:click={() => setTime(15)} class="button">15 minutes</button>
-    <button on:click={() => setTime(30)} class="button">30 minutes</button>
-    <button on:click={() => setTime(60)} class="button">1 hour</button>
+    <button on:click={() => addTime(-60)} class="button">-1h</button>
+    <button on:click={() => addTime(-1)} class="button">-1m</button>
+   <button on:click={() => setTime(0)} class="button">0</button>
+    <button on:click={() => addTime(1)} class="button">+1m</button>
+    <button on:click={() => addTime(60)} class="button">+1h</button>
   </div>
 </main>
