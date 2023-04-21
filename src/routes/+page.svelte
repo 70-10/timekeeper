@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import numeral from "numeral";
 
   let time = 60;
@@ -9,8 +9,8 @@
   $: timeNumeral = numeral(time).format("00:00:00");
 
   function start() {
-    if(time <= 0) {
-      return
+    if (time <= 0) {
+      return;
     }
     interval = setInterval(() => {
       time--;
@@ -33,28 +33,28 @@
     time = max;
   }
 
-  function setTime(minutes) {
+  function setTime(minutes: number) {
     reset();
 
     time = max = minutes * 60;
   }
 
-  function addTime(minutes) {
-    reset()
-    
-    const tmp = time
-    if(tmp + minutes * 60 <=0) {
-      time = max = 0
-      return
+  function addTime(minutes: number) {
+    reset();
+
+    const tmp = time;
+    if (tmp + minutes * 60 <= 0) {
+      time = max = 0;
+      return;
     }
-    time = max = time + minutes * 60
+    time = max = time + minutes * 60;
   }
 </script>
 
 <main
   class="main"
   style="background-image: linear-gradient(
-      to right,
+      to top,
       rgb(92, 191, 148) 0% {percentage}%,
       white {percentage}%
     );"
@@ -128,8 +128,38 @@
   <div class="buttons">
     <button on:click={() => addTime(-60)} class="button">-1h</button>
     <button on:click={() => addTime(-1)} class="button">-1m</button>
-   <button on:click={() => setTime(0)} class="button">0</button>
+    <button on:click={() => setTime(0)} class="button">0</button>
     <button on:click={() => addTime(1)} class="button">+1m</button>
     <button on:click={() => addTime(60)} class="button">+1h</button>
   </div>
 </main>
+
+<style lang="postcss">
+  .main {
+    @apply flex flex-col space-y-3;
+    @apply items-center justify-center;
+    @apply h-screen;
+  }
+
+  .time {
+    @apply text-7xl md:text-9xl;
+    @apply font-bold text-gray-700;
+  }
+
+  .buttons {
+    @apply inline-flex space-x-4;
+    @apply items-center;
+  }
+  .button {
+    @apply ring-1 ring-gray-700 rounded-full;
+    @apply inline-flex items-center;
+    @apply px-4 py-2;
+    @apply font-bold text-gray-700;
+    @apply hover:bg-gray-700 hover:text-green-500;
+  }
+
+  .icon {
+    @apply w-5 h-5;
+    @apply mr-2;
+  }
+</style>
