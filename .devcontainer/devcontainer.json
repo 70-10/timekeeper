@@ -14,7 +14,8 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "svelte.svelte-vscode"
+        "svelte.svelte-vscode",
+        "yoavbls.pretty-ts-errors"
       ]
     }
   }
